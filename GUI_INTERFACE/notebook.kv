@@ -1,0 +1,91 @@
+WindowManager:
+    MainWindow:
+    MenuWindow:
+    AddWindow:
+    ShowWindow:
+
+<MainWindow>:
+    name: "WELCOME"
+    BoxLayout:
+        Label:
+            text: "Welcome to \nNOTEBOOK application"
+
+        Image:
+            source: 'Notebook_main.png'
+            size: self.texture_size
+
+        Button:
+            text: "ENTRY"
+            background_color: (.36, .56, .32, 1)
+            on_release:app.root.current = "MENU"
+            on_press: app.open_file()
+
+        Button:
+            text: "EXIT"
+            on_release: app.close_application()
+
+
+
+<MenuWindow>:
+    name: "MENU"
+
+    BoxLayout:
+
+        Button:
+            text: "SHOW NOTES"
+            on_release:app.root.current = "SHOW NOTES"
+
+        Button:
+            text:"FIND NOTES"
+        Button:
+            text:"ADD NOTE"
+            on_release:app.root.current = "ADD NOTE"
+        Button:
+            text: "EXIT"
+
+<AddWindow>
+    name: "ADD NOTE"
+
+    BoxLayout:
+        orientation: "vertical"
+        rows:4
+
+        Label:
+            id: note_title_lb
+            text: "Enter note's title"
+
+        TextInput:
+            id: note_title_input
+            multiline:False
+        Button:
+            id: title_bt
+            text: "SUBMIT"
+            on_press: root.press_title()
+
+        Label:
+            id: note_body_lb
+            text: "Enter note's text"
+
+        TextInput:
+            id:note_body_input
+
+        Button:
+            id: body_bt
+            text: "SUBMIT"
+            on_press: root.press_body()
+
+
+<ShowWindow>
+    name: "SHOW NOTES"
+    BoxLayout:
+        Label:
+            id: show_notes_text
+            text: root.note_text
+            text_size: self.width, None
+            size_hint: 1, None
+            height: self.texture_size[1]
+
+        Button:
+            text: "check"
+            on_press: print(root.note_text)
+

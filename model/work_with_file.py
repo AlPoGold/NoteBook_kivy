@@ -1,5 +1,5 @@
 
-PATH = "files/notebook.csv"
+PATH = r"C:\Users\Админ\PycharmProjects\NB_kivy\files\notebook.csv"
 
 def read(path=PATH):
     with open(path, 'r') as file:

@@ -101,8 +101,10 @@ def delete_note():
 
 
 def show_notes():
-    for elem in notebook_list:
-        print(elem)
+    # for elem in notebook_list:
+    #     print(elem)
+    answer = "\n".join(notebook_list)
+    return f"{answer}"
 
 
 def return_notes(note_string):
